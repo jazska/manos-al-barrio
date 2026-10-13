@@ -1,34 +1,132 @@
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  background-color: var(--white);
+/* ---------- Sección ---------- */
+.hero {/* contenedor de toda la sección hero*/
+  padding: 72px 0;
+  text-align: left;              /* anula el text-align: center global de App.css */
+  background: var(--bg-color);
 }
 
-.hero h1 {
-  font-size: 0.9rem;
-  color: var(--primary-color);
-  letter-spacing: 2px;
+
+.hero__contenido {/* contenedor de las dos columnas texto | panel*/
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+
+/* ---------- Columna de texto ---------- */
+.hero__texto {/* contenedor de la columna izquierda (texto) */
+  flex: 1;                       /* ocupa todo el espacio que deja el panel */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero__eyebrow {/* texto pequeño "Voluntariado en Medellín" */
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  color: var(--primary-color);
 }
 
-.hero h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 20px;
+.hero__titulo {/* texto grande "Ayuda en tu barrio, cuando puedas" */
+  margin: 0;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: var(--text-dark);
 }
 
-.hero p {
-  font-size: 1.2rem;
+.hero__descripcion {/* texto debajo del título "encuentra jornadas de voluntariado cerca... */
+  margin: 0;
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.55;
   color: var(--text-light);
-  max-width: 600px;
-  margin: 0 auto 40px auto;
 }
 
-.hero-botones {
+
+.hero__botones {/* contenedor de los botones "Ver jornada" y "Publicar jornada" */
   display: flex;
-  gap: 15px;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero__boton {/* estilo base de los botones de la seccion hero */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.hero__boton--primario {/* botón verde "Ver jornada" */
+  background: var(--primary-color);
+  color: #ffffff;
+}
+.hero__boton--primario:hover { background: var(--primary-hover); }
+
+.hero__boton--secundario {/* botón blanco "Publicar jornada" */
+  background: #ffffff;
+  border-color: #e7e5e4;
+  color: var(--text-dark);
+}
+.hero__boton--secundario:hover { border-color: #a8a29e; }
+
+
+.hero__ventajas { /* contenedor de las ventajas debajo de los botones  "sin costo, por comuna y cupos claros"*/
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;              /* quita las viñetas por defecto */
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+/* Punto verde antes de cada ventaja, hecho solo con CSS */
+.hero__ventajas li::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
+/* ---------- Panel verde ---------- */
+.hero__ilustracion {
+  width: 460px;
+  min-height: 400px;             /* le da altura mientras no tiene tarjetas */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 36px;
+  border-radius: 28px;
+  background: #ccfbf1;
+}
+
+/* Estilo de las tarjetas que se pondrán dentro del panel (más adelante) */
+.hero__tarjeta { width: 360px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); }
+.hero__tarjeta--1 { transform: rotate(3deg); }
+.hero__tarjeta--2 { transform: rotate(-2deg); }
+
+/* ---------- Tablet y celular ---------- */
+@media (max-width: 900px) {
+  .hero { padding: 32px 0; }
+  .hero__ilustracion { display: none; }   /* en pantallas pequeñas no se muestra */
+  .hero__titulo { font-size: 34px; }
+  .hero__descripcion { font-size: 16px; }
+  .hero__boton { width: 100%; }           /* botones a todo el ancho */
 }
