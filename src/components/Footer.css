@@ -1,14 +1,75 @@
-.footer {
-  padding: 40px 20px;
-  text-align: center;
-  background-color: var(--text-dark);
-  color: #9CA3AF;
-  font-size: 0.9rem;
-  margin-top: auto;
+.footer {/* El footer siempre al fondo de la página, incluso si el contenido es corto */
+  margin-top: auto;            /* empuja el footer al fondo si la página es corta */
+  padding: 32px 0;
+  background: #1c1917;         /* casi negro, como en el Figma */
+  color: #ffffff;
+  text-align: left;
 }
 
-.footer p:first-child {
+
+.footer__contenido {/* Marca "Manos al Barrio"a la izquierda, enlaces a la derecha */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer__marca {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer__logo { 
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
   font-weight: 700;
-  color: var(--white);
-  margin-bottom: 5px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer__circulo { /* Círculo verde claro para la marca */
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #5eead4;
+}
+
+.footer__texto { /* Texto debajo de la marca "proyecto academico ..." */
+  margin: 0;
+  font-size: 13px;
+  color: #a8a29e;
+}
+
+.footer__enlaces { /* Lista de enlaces en el footer "inicio, jornadas, publicar jornadas" */
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__enlace {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e7e5e4;
+  text-decoration: none;
+}
+.footer__enlace:hover {
+  color: #5eead4;
+  text-decoration: underline;
+}
+
+/* Celular: todo apilado */
+@media (max-width: 640px) {
+  .footer__contenido {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer__enlaces {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
