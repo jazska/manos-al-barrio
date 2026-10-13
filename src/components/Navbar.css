@@ -1,27 +1,67 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 5%;
-  background-color: var(--white);
-  border-bottom: 1px solid #E5E7EB;
-  position: sticky;
+  position: sticky;/* se fija la barra de navegacion al hacer scroll */
   top: 0;
-  z-index: 100;
+  z-index: 10;
+  background: #ffffff;
+  border-bottom: 1px solid #e7e5e4;
 }
 
-.navbar .logo {
-  font-size: 1.25rem;
-  font-weight: 800;
+.navbar__contenido {/* contenedor de todo el contenido de la barra de navegación superior */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* logo a la izquierda, enlaces a la derecha */
+  padding-top: 16px;
+  padding-bottom: 16px;
+  
+}
+
+.navbar__logo {/* contenedor del logo "Manos al Barrio" */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.navbar__marca { /*circulo verde al lado del logo*/
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
+.navbar__enlaces {/* contenedor de los enlaces */
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar__enlace {/* enlace a Jornadas */
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+}
+.navbar__enlace:hover { color: var(--text-dark); } /* al pasar el mouse por encima de Jornadas, cambia de color */
+
+.navbar__enlace--activo {/* enlace  inicio  */
+  font-weight: 600;
   color: var(--primary-color);
 }
 
-.navbar .btn-publicar {
-  background-color: var(--primary-color);
-  color: var(--white);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+.navbar__boton {/* botón de "Publicar jornada" */
+  padding: 8px 14px; /*ancho x largo*/
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 600;
-  cursor: pointer;
+  text-decoration: none;
+}
+.navbar__boton:hover { background: var(--primary-hover); }/* al pasar el mouse por encima, cambia de color */
+
+/* En celular solo queda el logo y el botón */
+@media (max-width: 640px) {/* cuando la pantalla es menor a 640px de ancho */
+  .navbar__enlace { display: none; }
 }
