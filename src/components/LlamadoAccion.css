@@ -1,0 +1,45 @@
+.llamado-accion {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.llamado-accion p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.llamado-accion p:first-child {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.accion-botones {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.llamado-accion .btn-primario {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.llamado-accion .btn-primario:hover {
+  background-color: #f0f0f0;
+}
+
+.llamado-accion .btn-secundario {
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.llamado-accion .btn-secundario:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

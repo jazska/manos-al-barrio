@@ -1,0 +1,14 @@
+.footer {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--text-dark);
+  color: #9CA3AF;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.footer p:first-child {
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 5px;
+}

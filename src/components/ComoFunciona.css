@@ -1,0 +1,19 @@
+.como-funciona {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--bg-color);
+}
+
+.pasos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .pasos-container {
+    grid-template-columns: 1fr; 
+  }
+}
