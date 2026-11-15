@@ -1,0 +1,224 @@
+/* P3 · Lista de jornadas (Figma: P3 Lista, P3 Lista vacía, Móvil P3) */
+
+.lista-jornadas {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 48px;
+  padding-bottom: 72px;
+  text-align: left; /* anula el text-align: center global */
+}
+
+/* ---------- Cabecera: título a la izquierda, filtro a la derecha ---------- */
+.lista-jornadas__cabecera {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.lista-jornadas__titulo {
+  margin: 0 0 8px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--text-dark);
+}
+
+.lista-jornadas__subtitulo {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+/* ---------- Filtro ---------- */
+.lista-jornadas__filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lista-jornadas__filtro label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.lista-jornadas__filtro select {
+  width: 300px;
+  padding: 12px 40px 12px 14px;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  color: var(--text-dark);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  /* appearance: none quita la flecha del navegador; la del diseño va como
+     imagen de fondo (un SVG pequeño escrito dentro de la URL). */
+  appearance: none;
+  background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231c1917' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+}
+
+.lista-jornadas__filtro select:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 1px;
+}
+
+/* ---------- Conteo y tarjetas ---------- */
+.lista-jornadas__conteo {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* 3 columnas en escritorio; minmax(0, 1fr) evita que un texto largo ensanche la columna */
+.lista-jornadas__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* ---------- Mensajes: cargando y error ---------- */
+.lista-jornadas__mensaje {
+  margin: 0;
+  color: var(--text-light);
+}
+
+.lista-jornadas__mensaje--error {
+  color: #b91c1c;
+}
+
+/* ---------- Estado vacío ---------- */
+.lista-jornadas__vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 56px 40px;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.lista-jornadas__vacio-circulo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ccfbf1;
+}
+
+/* App.css le da a todos los h2 un estilo de "subtítulo" pequeño y verde;
+   aquí lo devolvemos a un título normal. */
+.lista-jornadas__vacio-titulo {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-dark);
+}
+
+.lista-jornadas__vacio-texto {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-light);
+}
+
+.lista-jornadas__vacio-botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Botones del diseño (Figma: Button/primary y Button/secondary).
+   Sirven igual para <a> y <button>: los botones no heredan la letra de la
+   página por defecto, por eso font: inherit. */
+.boton {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton--primario {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+.boton--primario:hover {
+  background: var(--primary-hover);
+}
+
+.boton--secundario {
+  background: #ffffff;
+  border-color: #e7e5e4;
+  color: var(--text-dark);
+}
+
+.boton--secundario:hover {
+  background: #f5f5f4;
+}
+
+/* ---------- Tableta: 2 columnas ---------- */
+@media (max-width: 960px) {
+  .lista-jornadas__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Celular (Figma: Móvil P3) ---------- */
+@media (max-width: 640px) {
+  .lista-jornadas {
+    gap: 16px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .lista-jornadas__cabecera {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .lista-jornadas__titulo {
+    margin: 0;
+    font-size: 26px;
+  }
+
+  .lista-jornadas__subtitulo,
+  .lista-jornadas__conteo-extra {
+    display: none; /* en el diseño móvil no aparecen */
+  }
+
+  .lista-jornadas__filtro label {
+    font-size: 14px;
+  }
+
+  .lista-jornadas__filtro select {
+    width: 100%;
+    border-color: #d6d3d1;
+  }
+
+  .lista-jornadas__conteo {
+    font-size: 13px;
+  }
+
+  .lista-jornadas__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .lista-jornadas__vacio {
+    padding: 40px 20px;
+  }
+}
